@@ -1,0 +1,57 @@
+{
+  "folders": [
+    {
+      "path": "client"
+    },
+    {
+      "path": "server"
+    },
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.git": true,
+      "**/node_modules": true,
+      "**/dist": true
+    },
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "eslint.validate": ["typescript", "typescriptreact", "javascript", "jsx"],
+    "terminal.integrated.cwd": "${workspaceFolder}",
+    "workbench.colorTheme": "Default Dark+"
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Run Server (tsx)",
+        "type": "node",
+        "request": "launch",
+        "skipFiles": ["<node_internals>/**"],
+        "program": "${workspaceFolder}/server/index.ts",
+        "preLaunchTask": "npm: dev",
+        "console": "integratedTerminal"
+      },
+      {
+        "name": "Run Vite Client",
+        "type": "node",
+        "request": "launch",
+        "runtimeExecutable": "npm",
+        "runtimeArgs": ["run", "dev", "--prefix", "client"],
+        "console": "integratedTerminal"
+      }
+    ]
+  },
+  "extensions": {
+    "recommendations": [
+      "esbenp.prettier-vscode",
+      "dbaeumer.vscode-eslint",
+      "streetsidesoftware.code-spell-checker",
+      "ms-vscode.vscode-typescript-next",
+      "formulahendry.code-runner"
+    ]
+  }
+}
